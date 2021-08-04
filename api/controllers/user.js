@@ -26,9 +26,9 @@ const userCtrl ={
         try {
             const user = await User.findOne({name: req.body.name})
             if( !user)
-            return res.status(500).json({msg: "wrong user name or password"})
+            return res.status(500).json({msg: "wrong user name or password!!"})
             const isMatch = await bcrypt.compare(req.body.password, user.password)
-            if(!isMatch) return res.status(400).json({msg: "wrong user name or password"})
+            if(!isMatch) return res.status(400).json({msg: "wrong user name or password!!"})
 
             res.status(200).json({_id:user._id,name:user.name})
         } catch (err) {
